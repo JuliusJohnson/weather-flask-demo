@@ -27,7 +27,8 @@ def weather():
     data = {
         "weather_description": str(detail_weather_data['current']['weather'][0]['description']), 
         "coordinate": str(list_of_data['coord']['lon']) + ' ' 
-                    + str(list_of_data['coord']['lat']), 
+                    + str(list_of_data['coord']['lat']),
+        "w_icon": str("http://openweathermap.org/img/wn/" + str(detail_weather_data['current']['weather'][0]['icon']) + "@2x.png") ,
         "temp": str(detail_weather_data['current']['temp']), #Converting to Farenheight
         "feel": str(detail_weather_data['current']['feels_like']), #Converting to Farenheight
         "mintemp": str(detail_weather_data['daily'][0]['temp']['min']), 
