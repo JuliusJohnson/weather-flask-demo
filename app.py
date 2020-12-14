@@ -25,7 +25,7 @@ def weather():
     more_weather_data = rqst.get(f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={api}') #pulls data from openweathermap.org's one call api
     detail_weather_data = more_weather_data.json()
     data = {
-        "weather_description": str(detail_weather_data['current']['weather'][0]['description']), 
+        "weather_description": str(detail_weather_data['current']['weather'][0]), 
         "coordinate": str(list_of_data['coord']['lon']) + ' ' 
                     + str(list_of_data['coord']['lat']),
         "w_icon": str("http://openweathermap.org/img/wn/" + str(detail_weather_data['current']['weather'][0]['icon']) + "@2x.png") ,
@@ -34,9 +34,11 @@ def weather():
         "mintemp": str(detail_weather_data['daily'][0]['temp']['min']), 
         "maxtemp": str(detail_weather_data['daily'][0]['temp']['max']), 
     } 
-    pprint(detail_weather_data['current']['weather'])
+    pprint(detail_weather_data['current'])
     return render_template('index.html', data=data)
 
     if __name__ == '__main__':
         app.run(debug = True)
 
+    #todo:
+    #add error handling if a invalid city is chosen

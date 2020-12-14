@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>weather</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <header class="mb-auto">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <nav class="nav nav-masthead justify-content-center float-md-end">
+    <h1 class="col-md-3 text-center" class="col-md-8 offset-md-2" >weather</h1>
+  </nav>
+</div>
+</header>
+  <br />
+  <br />
+  <main class="px-3">
+  <!--<div class="row mx-auto"">-->
+    <div class="row mb-2">
+    <form method="post">
+      <div class="input-group container">
+        <input type="text" class="form-control me-8" name="city" placeholder="Search">
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+          
+        </div>
+      
+        <form>
+        </div>
+          <div class="row mb-2"> Test</div>
+        <!--</div>-->
+ 
+    {% if data.weather_description and data.w_icon and data.coordinate and data.temp and data.mintemp and data.maxtemp and data.feel%}
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Weather : {{data.weather_description}}</h3>
+      <h3><img src={{data.w_icon}}></h3>
+        <h5>City name : {{data.cityname}}</h5>
+        <h5>coordinate : {{data.coordinate}}</h5>
+        <h5>temp (in kelvin) : {{data.temp}}</h5>
+        <h5>Feels Like : {{data.feel}}</h5>
+        <h5>Min Temp : {{data.mintemp}} </h5>
+        <h5>Max Temp : {{data.maxtemp}}</h5>
+   
+    {% endif %}
+  </div>
+</main>
+</body>
+
+</html>

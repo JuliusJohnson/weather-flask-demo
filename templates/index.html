@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 
 <head>
   <meta charset="utf-8">
-  <title>weather</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <!--<link rel="stylesheet" href="theme.css" type="text/css">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,36 +17,49 @@
 </head>
 
 <body>
-  <nav class="row mx-auto"  style="background: #337ab7; color: white;" >
-    <h1 class="col-md-3 text-center" class="col-md-8 offset-md-2" >weather</h1>
-  </nav>
-  <br />
-  <br />
-  <div class="row mx-auto"">
-    <form method="post" class="col-md-6 col-md-offset-3">
-      <div class="input-group">
-        <input type="text" class="form-control" name="city" placeholder="Search">
-        <div class="input-group-btn">
-          <button class="btn btn-primary" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
+  <div class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="p-5 col-md-7 d-flex flex-column justify-content-center">
+          <h3 class="display-4 mb-3">Today's Weather Trends</h3>
+          {% if data.weather_description and data.w_icon and data.coordinate and data.temp and data.mintemp and data.maxtemp and data.feel%}
+          <p class="mb-4 lead">Current Temp: {{data.temp}}</p>
+          <p class="mb-4 lead">Max Temp: {{data.mintemp}}</p>
+          <p class="mb-4 lead">Min Temp: {{data.maxtemp}}</p>
         </div>
-        <form>
+        <div class="p-5 col-md-5">
+          <h3 class="mb-3">Type a City:</h3>
+          <form method ="post">
+            <div class="form-group"> <label>City Name</label> <input type="text" class="form-control" placeholder="Type here" name="city"> </div>
+            <button type="submit" class="btn mt-4 btn-block btn-outline-dark p-2"><b>Discover The Weather</b></button>
+          </form>
         </div>
-  <div class="row">
-    {% if data.weather_description and data.w_icon and data.coordinate and data.temp and data.mintemp and data.maxtemp and data.feel%}
-    <div class="col-md-6 col-md-offset-3">
-      <h3>Weather : {{data.weather_description}}</h3>
-      <h3><img src={{data.w_icon}}></h3>
-        <h5>City name : {{data.cityname}}</h5>
-        <h5>coordinate : {{data.coordinate}}</h5>
-        <h5>temp (in kelvin) : {{data.temp}}</h5>
-        <h5>Feels Like : {{data.feel}}</h5>
-        <h5>Min Temp : {{data.mintemp}} </h5>
-        <h5>Max Temp : {{data.maxtemp}}</h5>
+      </div>
     </div>
-    {% endif %}
   </div>
-</body>
+  {% endif %}
+  <div class="py-5 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="mb-3">A Flask Weather App Demo</h1>
+          <p>Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing, Oh, would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite God!&nbsp;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center d-md-flex justify-content-between align-items-center">
+          <p class="text-center col-md-12">© Julius J.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+ </body>
 
 </html>
