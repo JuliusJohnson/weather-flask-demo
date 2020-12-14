@@ -17,42 +17,44 @@
 </head>
 
 <body>
-  <div class="py-5 bg-light">
+  <div class="py-5 bg-dark">
     <div class="container">
       <div class="row">
+        {% if data.weather_description and data.w_icon and data.coordinate and data.temp and data.mintemp and data.maxtemp and data.feel%}
         <div class="p-5 col-md-7 d-flex flex-column justify-content-center">
-          <h3 class="display-4 mb-3">Today's Weather Trends</h3>
-          {% if data.weather_description and data.w_icon and data.coordinate and data.temp and data.mintemp and data.maxtemp and data.feel%}
-          <p class="mb-4 lead">Current Temp: {{data.temp}}</p>
-          <p class="mb-4 lead">Max Temp: {{data.mintemp}}</p>
-          <p class="mb-4 lead">Min Temp: {{data.maxtemp}}</p>
+          <h3 class="display-4 mb-3 text-light" >{{data.city}}'s Weather</h3>
+          <span><img src={{data.w_icon}} width="64" height="64"></span>
+          <p class="mb-4 lead text-light" >Current Temp: {{data.temp}}</p>
+          <p class="mb-4 lead text-light">Max Temp: {{data.mintemp}}</p>
+          <p class="mb-4 lead text-light">Min Temp: {{data.maxtemp}}</p>
         </div>
         <div class="p-5 col-md-5">
-          <h3 class="mb-3">Type a City:</h3>
+          <!-- <h3 class="mb-3 text-light">Type a City:</h3> -->
           <form method ="post">
-            <div class="form-group"> <label>City Name</label> <input type="text" class="form-control" placeholder="Type here" name="city"> </div>
-            <button type="submit" class="btn mt-4 btn-block btn-outline-dark p-2"><b>Discover The Weather</b></button>
+            <div class="form-group text-light"> <label>City Name</label> <input type="text" class="form-control" placeholder="Type here" name="city"> </div>
+            <div class="form-group text-light"> <label>State</label> <input type="text" class="form-control" placeholder="Type here" name="state"> </div>
+            <button type="submit" class="btn mt-4 btn-block btn-outline-light p-2"><b>Discover The Weather</b></button>
           </form>
         </div>
       </div>
     </div>
   </div>
   {% endif %}
-  <div class="py-5 text-center">
+  <div class="py-5 text-center bg-light">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <h1 class="mb-3">A Flask Weather App Demo</h1>
-          <p>Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing, Oh, would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite God!&nbsp;</p>
+          <p>A simple Weather Flask App Demo. Unfournately sharing Python applications is combersome. I wanted to learn <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> to be able to have an additional tool to share Python functionality with less technical users. In this Demo application I use Openweathermap.org's free "One Call API" in combination with the "Current Weather Data" API. Additionally, designed a basic webpage utilizing bootstrap.&nbsp;</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="py-3">
+  <div class="py-3 bg-light">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center d-md-flex justify-content-between align-items-center">
-          <p class="text-center col-md-12">© Julius J.</p>
+          <p class="text-center col-md-12 text-dark">© Julius J.</p>
         </div>
       </div>
     </div>
